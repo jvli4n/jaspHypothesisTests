@@ -1,12 +1,12 @@
-Package: jaspModuleTemplate
+Package: jaspHypothesisTests
 Type: Package
-Title: A module for JASP
+Title: A JASP module for testing hypotheses.
 Version: 0.1.0
 Date: 2020-10-15
 Author: JASP Team
 Website: jasp-stats.org
 Maintainer: JASP Team <info@jasp-stats.org>
-Description: Example module showing basic functionality. Use it for inspiration when creating your own module.
+Description: Module that bundles all analyses commonly used for testing hypotheses.
 License: GPL (>= 2)
 Encoding: UTF-8
 Imports:
@@ -17,3 +17,4 @@ Suggests:
 Remotes:
   jasp-stats/jaspBase,
   jasp-stats/jaspGraphs
+RoxygenNote: 7.3.3

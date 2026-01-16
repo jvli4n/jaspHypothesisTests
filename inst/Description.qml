@@ -3,9 +3,9 @@ import JASP.Module
 
 Description
 {
-	name		: "jaspModuleTemplate"
-	title		: qsTr("Jasp Module")
-	description	: qsTr("Examples for module builders")
+	name		: "jaspHypothesisTests"
+	title		: qsTr("Hypothesis Tests")
+	description	: qsTr("Module that bundles hypothesis tests.")
 	version		: "0.1"
 	author		: "JASP Team"
 	maintainer	: "JASP Team <info@jasp-stats.org>"
@@ -15,60 +15,98 @@ Description
 	preloadData: true
 	requiresData: true
 
-	GroupTitle
-	{
-		title:	qsTr("Basic interactivity")
-	}
 
 	Analysis
 	{
-		title: qsTr("Using the interface") // Title for window
-		menu: qsTr("Using the interface")  // Title for ribbon
+		title: qsTr("One Sample Z-Test") // Title for window
+		menu: qsTr("One Sample Z-Test")  // Title for ribbon
 		func: "interfaceExample"           // Function to be called
 		qml: "Interface.qml"               // Design input window
-		requiresData: false                // Allow to run even without data
+		requiresData: true                
+	}
+	
+	Analysis
+	{
+		title: qsTr("One Sample T-Test") // Title for window
+		menu: qsTr("One Sample T-Test")  // Title for ribbon
+		func: "interfaceExample"           // Function to be called
+		qml: "Interface.qml"               // Design input window
+		requiresData: true                
 	}
 
 	Analysis
 	{
-	  title: qsTr("Loading data")
-	  menu: qsTr("Loading data")
-	  func: "processData"
-	  qml: "Data.qml"
-	}
-
-	GroupTitle
-	{
-		title:	qsTr("Basic functions")
+		title: qsTr("Independent Samples T-Test") // Title for window
+		menu: qsTr("Independent Samples T-Test")  // Title for ribbon
+		func: "interfaceExample"           // Function to be called
+		qml: "Interface.qml"               // Design input window
+		requiresData: true                
 	}
 
 	Analysis
 	{
-	  title: qsTr("Add one")        // Title for window
-	  menu: qsTr("Add one")         // Title for ribbon
-	  func: "addOne"                // Function to be called
-      qml: "Integer.qml"            // Design input window
-	  requiresData: false           // Allow to run even without data
+		title: qsTr("Paired Samples T-Test") // Title for window
+		menu: qsTr("Paired Samples T-Test")  // Title for ribbon
+		func: "interfaceExample"           // Function to be called
+		qml: "Interface.qml"               // Design input window
+		requiresData: true                
+	}
+
+	Separator{}
+
+	Analysis
+	{
+		title: qsTr("Single Proportion") // Title for window
+		menu: qsTr("Single Proportion")  // Title for ribbon
+		func: "interfaceExample"           // Function to be called
+		qml: "Interface.qml"               // Design input window
+		requiresData: true                
 	}
 
 	Analysis
 	{
-	  title: qsTr("Tabular results")
-	  menu: qsTr("Tabular results")
-	  func: "processTable"
-	  qml: "Table.qml"
-	}
-
-	GroupTitle
-	{
-	  title: qsTr("Plotting")
+		title: qsTr("Two Proportions") // Title for window
+		menu: qsTr("Two Proportions")  // Title for ribbon
+		func: "interfaceExample"           // Function to be called
+		qml: "Interface.qml"               // Design input window
+		requiresData: true                
 	}
 
 	Analysis
 	{
-	  title: qsTr("Plot a parabola")
-	  func: "parabola"
-	  qml: "Parabola.qml"
-	  requiresData: false
+		title: qsTr("One Sample Poisson Rate") // Title for window
+		menu: qsTr("One Sample Poisson Rate")  // Title for ribbon
+		func: "interfaceExample"           // Function to be called
+		qml: "Interface.qml"               // Design input window
+		requiresData: true                
+	}
+
+	Analysis
+	{
+		title: qsTr("Two Sample Poisson Rate") // Title for window
+		menu: qsTr("Two Sample Poisson Rate")  // Title for ribbon
+		func: "interfaceExample"           // Function to be called
+		qml: "Interface.qml"               // Design input window
+		requiresData: true                
+	}
+
+	Separator{}
+
+	Analysis
+	{
+		title: qsTr("Single Variance") // Title for window
+		menu: qsTr("Single Variance")  // Title for ribbon
+		func: "interfaceExample"           // Function to be called
+		qml: "Interface.qml"               // Design input window
+		requiresData: true                
+	}
+
+	Analysis
+	{
+		title: qsTr("Two Variances") // Title for window
+		menu: qsTr("Two Variances")  // Title for ribbon
+		func: "interfaceExample"           // Function to be called
+		qml: "Interface.qml"               // Design input window
+		requiresData: true                
 	}
 }

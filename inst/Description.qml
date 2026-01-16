@@ -20,8 +20,8 @@ Description
 	{
 		title: qsTr("One Sample Z-Test") // Title for window
 		menu: qsTr("One Sample Z-Test")  // Title for ribbon
-		func: "interfaceExample"           // Function to be called
-		qml: "Interface.qml"               // Design input window
+		func: "zTest"           // Function to be called
+		qml: "zTest.qml"               // Design input window
 		requiresData: true                
 	}
 	

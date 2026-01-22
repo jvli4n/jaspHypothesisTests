@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2013-2018 University of Amsterdam
+// Copyright (C) 2013-2022 University of Amsterdam
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -15,11 +15,13 @@
 // License along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 //
-import QtQuick
-import QtQuick.Layouts
-import JASP.Controls
-import JASP.Widgets
-import JASP
-import 'common'
 
-OneSampleTests{info: "test"; testName: "zTest"}
+import QtQuick
+Item
+{
+	enum Framework
+	{
+		Classical,
+		Bayesian
+	}
+}

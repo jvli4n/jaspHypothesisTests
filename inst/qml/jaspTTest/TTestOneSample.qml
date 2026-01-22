@@ -15,17 +15,19 @@
 // License along with this program.  If not, see
 // <http://www.gnu.org/licenses/>.
 //
+
 import QtQuick
 import QtQuick.Layouts
-import JASP.Controls
-import JASP.Widgets
 import JASP
+import JASP.Controls
+import "./common" as Common
 
 Form
 {
+	info: qsTr("The one sample t-test allows the user to estimate the effect size and test the null hypothesis that the population mean equals a specific constant, i.e., the test value.\n") + 
+    "## " + qsTr("Assumptions") + "\n" + "- The dependent variable is continuous.\n" + "- The data are a random sample from the population.\n" + "- The dependent variable is normally distributed in the population."
 	id: form
-    property string testName
-    
+	property int framework:	Common.Type.Framework.Classical
 
 	Formula { rhs: "dependent" }
 
@@ -39,9 +41,12 @@ Form
 
 	Group
 	{
-        title: qsTr("")
+		title: qsTr("Tests")
+		CheckBox { name: "student";		label: qsTr("Student"); info: qsTr("The Student's t-test. This option is selected by default."); checked: true	}
+		CheckBox { name: "wilcoxon";	label: qsTr("Wilcoxon signed-rank"); info: qsTr("Wilcoxon signed-rank test. Use when the model residuals are not normally distributed.")		}
+		CheckBox { name: "zTest";			label: qsTr("Z Test"); info: qsTr("The Z test. Use for testing whether two population means are different.");  id: zTest		}
 		DoubleField { name: "testValue";	label: qsTr("Test value:"); info: qsTr("Test value specified in the null hypothesis. The mean of the data is compared to this value. Set to 0 by default, which can be changed by the user.")	;defaultValue: 0;	negativeValues: true	}
-	    DoubleField { name: "zTestSd";		label: qsTr("Std. deviation:"); info: qsTr("The standard deviation applied in the Z test. Set to 1 by default, which can be changed by the user.") ;defaultValue: 1.0;	visible: testName === "zTest"	}
+		DoubleField { name: "zTestSd";		label: qsTr("Std. deviation:"); info: qsTr("The standard deviation applied in the Z test. Set to 1 by default, which can be changed by the user.") ;defaultValue: 1.0;	enabled: zTest.checked	}
 	}
 
 	Group
@@ -103,10 +108,10 @@ Form
 			name: "raincloudPlot"; label: qsTr("Raincloud plots"); info: qsTr("Displays the individual data points, box plot, and density.")
 			CheckBox { name: "raincloudPlotHorizontal"; label: qsTr("Horizontal display"); info: qsTr("Changes the orientation of the raincloud plot so that the x-axis represents the dependent variable.") }
 		}
-		// Common.BarPlots
-		// {
-		// 	framework:	Classical
-		// }
+		Common.BarPlots
+		{
+			framework:	form.framework
+		}
 
 
 	}

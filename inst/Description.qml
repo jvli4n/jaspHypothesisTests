@@ -15,24 +15,20 @@ Description
 	preloadData: true
 	requiresData: true
 
+	GroupTitle
+	{
+		title: qsTr('Mean')
+	}
 
 	Analysis
 	{
-		title: qsTr("One Sample Z-Test") // Title for window
-		menu: qsTr("One Sample Z-Test")  // Title for ribbon
-		func: "zTest"           // Function to be called
-		qml: "zTest.qml"               // Design input window
+		title: qsTr("One Sample Tests") // Title for window
+		menu: qsTr("One Sample Tests")  // Title for ribbon
+		func: "oneSampleTests"           // Function to be called
+		qml: "oneSampleTests.qml"               // Design input window
 		requiresData: true                
 	}
 	
-	Analysis
-	{
-		title: qsTr("One Sample T-Test") // Title for window
-		menu: qsTr("One Sample T-Test")  // Title for ribbon
-		func: "interfaceExample"           // Function to be called
-		qml: "Interface.qml"               // Design input window
-		requiresData: true                
-	}
 
 	Analysis
 	{

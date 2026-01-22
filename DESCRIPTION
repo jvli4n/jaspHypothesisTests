@@ -10,11 +10,15 @@ Description: Module that bundles all analyses commonly used for testing hypothes
 License: GPL (>= 2)
 Encoding: UTF-8
 Imports:
-  jaspBase,
-  jaspGraphs
+    jaspBase,
+    jaspGraphs,
+    jaspSyntax (>= 1.2),
+    jaspTTests
 Suggests:
   testthat
-Remotes:
-  jasp-stats/jaspBase,
-  jasp-stats/jaspGraphs
+Remotes: 
+    jasp-stats/jaspBase,
+    jasp-stats/jaspGraphs,
+    jasp-stats/jaspTTests,
+    jasp-stats/jaspSyntax
 RoxygenNote: 7.3.3

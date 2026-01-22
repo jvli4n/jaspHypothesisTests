@@ -20,3 +20,8 @@
 singleProportion <- function(jaspResults, dataset, options, ...) {
   return(jaspFrequencies::BinomialTestInternal(jaspResults, dataset, options, ...))
 }
+
+#' @export
+multipleProportions <- function(jaspResults, dataset, options, ...) {
+  return(jaspFrequencies::MultinomialTestInternal(jaspResults, dataset, options, ...))
+}

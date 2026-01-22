@@ -26,7 +26,7 @@ Form
 	VariablesForm
 	{
 		preferredHeight: 190 * preferencesModel.uiScale
-		marginBetweenVariablesLists	: 15
+		marginBetweenVariablesLists: 15
 		AvailableVariablesList {				name: "allVariablesList" }
 		AssignedVariablesList {	id: factors;	name: "factor";			title: qsTr("Factor");			singleVariable: true; allowedColumns: ["nominal"]	}
 		AssignedVariablesList {					name: "count";			title: qsTr("Counts");			singleVariable: true; allowedColumns: ["scale"]	}
@@ -42,8 +42,8 @@ Form
 
 		Layout.columnSpan: 2
 
-		RadioButton {	value: "equal";		label: qsTr("Equal proportions");			checked: true				}
-		RadioButton {	value: "custom";	label: qsTr("Custom expected proportions"); id: expectedProbs			}
+		RadioButton {						value: "equal";		label: qsTr("Equal proportions (multinomial test)");	 checked: true	}
+		RadioButton {	id: expectedProbs;	value: "custom";	label: qsTr("Custom expected proportions (χ² test)"); 				  	}
 
 		Chi2TestTableView
 		{
@@ -51,31 +51,28 @@ Form
 			preferredWidth	: form.availableWidth - hypothesisGroup.leftPadding
 			visible			: expectedProbs.checked && factors.count > 0
 			source			: "factor"
-			maxNumHypotheses: 5
 			decimals		: 3
 		}
 	}
 
-	ColumnLayout
+	Group
 	{
-		BayesFactorType { }
+		title	: qsTr("Additional Statistics")
 
-		Group
+		CheckBox
 		{
-			title	: qsTr("Additional Statistics")
+			name	: "descriptivesTable"; label: qsTr("Descriptives")
+
 			CheckBox
 			{
-				name	: "descriptivesTable"
-				label	: qsTr("Descriptives")
-				CheckBox
-				{
-					name				: "descriptivesTableCi"; label: qsTr("Credible interval")
-					childrenOnSameRow	: true
+				name:					"descriptivesTableCi"
+				label:					qsTr("Confidence interval")
+				childrenOnSameRow	:	true
 
-					CIField { name: "descriptivesTableCiLevel" }
-				}
+				CIField {	name: "descriptivesTableCiLevel"	}
 			}
 		}
+		CheckBox {	name: "vovkSellke";	label: qsTr("Vovk-Sellke maximum p-ratio")		}
 	}
 
 	ColumnLayout
@@ -85,45 +82,21 @@ Form
 			name	: "descriptivesType"
 			title	: qsTr("Display")
 
-			RadioButton { value: "counts";		label: qsTr("Counts");	checked: true	}
-			RadioButton { value: "proportions";	label: qsTr("Proportions")				}
+			RadioButton {	value: "counts";		label: qsTr("Counts");	checked: true	}
+			RadioButton {	value: "proportions";	label: qsTr("Proportions")				}
 		}
 
 		Group
 		{
 			title	: qsTr("Plots")
+
 			CheckBox
 			{
 				name	: "descriptivesPlot"
 				label	: qsTr("Descriptives plot")
 
-				CIField { name: "descriptivesPlotCiLevel"; label: qsTr("Credible interval") }
+				CIField {	name: "descriptivesPlotCiLevel"; label: qsTr("Confidence interval")	}
 			}
-		}
-	}
-
-	Section
-	{
-		title	: qsTr("Prior")
-
-		Text
-		{
-			visible: factors.count == 0
-			text: qsTr("No factor specified")
-		}
-
-		Chi2TestTableView
-		{
-			name			: "priorCounts"
-			preferredWidth	: form.availableWidth - hypothesisGroup.leftPadding
-			source			: "factor"
-			visible			: factors.count > 0
-
-			showAddButton		: false
-			showDeleteButton	: false
-			colHeader			: qsTr("Counts")
-			cornerText			: qsTr("Level #")
-			itemType			: JASP.Integer
 		}
 	}
 }

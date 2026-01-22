@@ -20,28 +20,7 @@ import QtQuick.Layouts
 import JASP.Controls
 import JASP.Widgets
 import JASP
+import 'jaspTTest' // TODO these should be imported not manually copied
+import 'jaspTTest/common' // TODO these should be imported not manually copied
 
-Form
-{
-  info: qsTr("This example shows how to plot a curve.")
-
-  Text
-  {
-      text: qsTr("This example shows how to plot a curve")
-  }
-
-	IntegerField
-	{
-		info: qsTr("The shape of the parabola is dynamically determined by this number")
-
-		name: "a"                      // This will map to options$a in R
-		label: qsTr("Type a number")   // qsTr allows for future translations
-
-		// We can add some extra control parameters
-		min: -10
-		defaultValue: 1
-		fieldWidth: 50
-		max: 10
-	}
-
-}
+TTestOneSample{}

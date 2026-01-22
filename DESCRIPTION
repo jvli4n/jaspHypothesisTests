@@ -12,13 +12,11 @@ Encoding: UTF-8
 Imports:
     jaspBase,
     jaspGraphs,
-    jaspSyntax (>= 1.2),
     jaspTTests
 Suggests:
   testthat
 Remotes: 
     jasp-stats/jaspBase,
     jasp-stats/jaspGraphs,
-    jasp-stats/jaspTTests,
-    jasp-stats/jaspSyntax
+    jasp-stats/jaspTTests
 RoxygenNote: 7.3.3

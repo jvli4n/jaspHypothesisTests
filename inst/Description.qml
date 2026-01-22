@@ -17,7 +17,7 @@ Description
 
 	GroupTitle
 	{
-		title: qsTr('Mean')
+		title: qsTr("Mean")
 	}
 
 	Analysis
@@ -41,14 +41,19 @@ Description
 
 	Analysis
 	{
-		title: qsTr("Paired Samples T-Test") // Title for window
-		menu: qsTr("Paired Samples T-Test")  // Title for ribbon
-		func: "interfaceExample"           // Function to be called
-		qml: "Interface.qml"               // Design input window
+		title: qsTr("Paired Samples Tests") // Title for window
+		menu: qsTr("Paired Samples Tests")  // Title for ribbon
+		func: "pairedSamplesTests"           // Function to be called
+		qml: "pairedSamplesTests.qml"               // Design input window
 		requiresData: true                
 	}
 
 	Separator{}
+
+	GroupTitle
+	{
+		title: qsTr("Proportion")
+	}
 
 	Analysis
 	{
@@ -66,6 +71,13 @@ Description
 		func: "interfaceExample"           // Function to be called
 		qml: "Interface.qml"               // Design input window
 		requiresData: true                
+	}
+
+	Separator{}
+
+	GroupTitle
+	{
+		title: qsTr("Rate")
 	}
 
 	Analysis
@@ -87,6 +99,11 @@ Description
 	}
 
 	Separator{}
+
+	GroupTitle
+	{
+		title: qsTr("Variance")
+	}
 
 	Analysis
 	{

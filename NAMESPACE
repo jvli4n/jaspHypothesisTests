@@ -2,5 +2,6 @@
 
 export(independentSamplesTests)
 export(oneSampleTests)
+export(pairedSamplesTests)
 import(jaspBase)
 import(jaspTTests)

@@ -60,7 +60,7 @@ Form
 		title: qsTr("Alternative Hypothesis")
 		RadioButton 
         { 
-            value: "twoSided"		
+            value: "two.sided" // to fit the input pattern of the underlying R package		
             label: qsTr("≠ Test value"); 
             info: qsTr("Two sided alternative hypothesis that the sample variance is not equal to the test value. Selected by default."); checked: true	
         }
@@ -105,6 +105,12 @@ Form
                 RadioButton { value: "chiSquare"; label: qsTr("χ²") ; checked: true }
                 RadioButton { value: "bonett"; label: qsTr("Bonett") }
             }
+        }
+
+        CheckBox
+        {
+            label: qsTr("Standard deviation")
+            name: "sdEstimate"
         }
         
     }
